@@ -1,8 +1,8 @@
 import React from 'react'
-import Navigation from "../Customer/Components/Navigation"
-import MainCarousel from "../Customer/Components/HomeCarousel/MainCarousel"
+import Navigation from "./Navigation"
+import MainCarousel from "./MainCarousel"
 // import HomeSectionCard from "../Customer/Components/HomeSectionCard/HomeSectionCard"
-import HomeSectionCarousel from "../Customer/Components/HomeCarousel/HomeSectionCarousel"
+import HomeSectionCarousel from "./HomeSectionCarousel"
 import mens_kurta from './Data/mens_kurta'
 import mensShoesPage1 from "./Data/Mens_Shoe"
 import Mens_Jeans from "./Data/Mens_Jeans"
@@ -15,7 +15,7 @@ const HomePage = () => {
     <>
       <Navigation />
       <MainCarousel />
-      {/* <div className='space-y-10 py-20 flex flex-col justify-center'>
+      <div className='space-y-10 py-20 flex flex-col justify-center'>
         <HomeSectionCarousel data={mens_kurta} category={"Men's Kurta"} />
         <HomeSectionCarousel data={mensShoesPage1} category={"Men's Shoe"} />
         <HomeSectionCarousel data={Mens_Jeans} category={"Men's Jeans"} />
@@ -28,7 +28,7 @@ const HomePage = () => {
 
 
 
-      </div> */}
+      </div>
       <Footer />
     </>
   )

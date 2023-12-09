@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
+import HomeSectionCard from './HomeSectionCard';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
@@ -59,7 +59,7 @@ const HomeSectionCarousel = ({ data, category }) => {
         }
     }
         , [activeIndex])
-   
+
     const items = data.map((item) => <HomeSectionCard product={item} />)
     return (
         <>
