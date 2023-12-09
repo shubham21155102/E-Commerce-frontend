@@ -19,4 +19,4 @@ const HomeSectionCard = ({product}) => {
 const HomeSectionCarde = dynamic(() => Promise.resolve(HomeSectionCard), {
   ssr: false,
 })
-export default HomeSectionCard
+export default HomeSectionCarde
