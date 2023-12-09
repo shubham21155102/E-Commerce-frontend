@@ -6,8 +6,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
 import { Button } from '@mui/material';
-import { mens_kurta } from './mens_kurta';
-const HomeSectionCarousel = ({ data ,category}) => {
+// import { mens_kurta } from '../../../comonents/Data/mens_kurta';
+const HomeSectionCarousel = ({ data, category }) => {
     console.log(data + "data obtained")
     const [activeIndex, setActiveIndex] = useState(0);
     const [left, setLeft] = React.useState(false);
@@ -64,7 +64,7 @@ const HomeSectionCarousel = ({ data ,category}) => {
     return (
         <>
             <div className='relative px-4 lg:px-8 border border-white'>
-            <h1 className='text-2xl font-bold text-center'>{category}</h1>
+                <h1 className='text-2xl font-bold text-center'>{category}</h1>
                 <div className='relative p-5'>
                     <AliceCarousel
 
