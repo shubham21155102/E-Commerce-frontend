@@ -15,7 +15,7 @@ const HomePage = () => {
     <>
       <Navigation />
       <MainCarousel />
-      <div className='space-y-10 py-20 flex flex-col justify-center'>
+      {/* <div className='space-y-10 py-20 flex flex-col justify-center'>
         <HomeSectionCarousel data={mens_kurta} category={"Men's Kurta"} />
         <HomeSectionCarousel data={mensShoesPage1} category={"Men's Shoe"} />
         <HomeSectionCarousel data={Mens_Jeans} category={"Men's Jeans"} />
@@ -28,7 +28,7 @@ const HomePage = () => {
 
 
 
-      </div>
+      </div> */}
       <Footer />
     </>
   )

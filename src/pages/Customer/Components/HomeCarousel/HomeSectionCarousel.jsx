@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { Button } from '@mui/material';
 // import { mens_kurta } from '../../../comonents/Data/mens_kurta';
 const HomeSectionCarousel = ({ data, category }) => {
-    console.log(data + "data obtained")
+    // console.log(data + "data obtained")
     const [activeIndex, setActiveIndex] = useState(0);
     const [left, setLeft] = React.useState(false);
     const [right, setRight] = React.useState(true);
@@ -40,8 +40,8 @@ const HomeSectionCarousel = ({ data, category }) => {
 
 
     const syncActiveIndex = ({ item }) => {
-        console.log(item + " syncActiveIndex obtained")
-        console.log(activeIndex + " activeIndex obtained")
+        // console.log(item + " syncActiveIndex obtained")
+        // console.log(activeIndex + " activeIndex obtained")
         setActiveIndex(item)
     }
     useEffect(() => {
@@ -59,7 +59,7 @@ const HomeSectionCarousel = ({ data, category }) => {
         }
     }
         , [activeIndex])
-
+   
     const items = data.map((item) => <HomeSectionCard product={item} />)
     return (
         <>
