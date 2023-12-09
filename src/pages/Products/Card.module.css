@@ -1,0 +1,22 @@
+.productCard{
+  width: 15rem;
+  margin: 0.75rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  cursor: pointer;
+}
+.productInfo{
+    background-color: white;
+    padding: 0.75rem;
+    color: black;
+}
+.productInfo .productInfo{
+    transition: transform 0.3s ease-in-out;
+}
+/* .productInfo:hover .productInfo{
+    transform: translateY(-1rem);
+}
+.productInfo:hover{
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+} */

@@ -1,6 +1,10 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Avatar,Button,Menu,MenuItem } from '@mui/material'
+import { deepPurple } from '@mui/material/colors'
+import  Router  from 'next/router'
+// import navigationData from "./Data/navigation.json"
 
 const navigation = {
   categories: [
@@ -10,13 +14,13 @@ const navigation = {
       featured: [
         {
           name: 'New Arrivals',
-          href: '#',
+          href: '/',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
           name: 'Basic Tees',
-          href: '#',
+          href: '/',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
@@ -26,38 +30,39 @@ const navigation = {
           id: 'clothing',
           name: 'Clothing',
           items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
+            { name: 'Tops', id:"top", href: `{women/clothing/tops}` },
+            { name: 'Dresses', id:"women_dress", href: '#' },
+            { name: 'Women Jeans', id: 'women_jeans' },
+            { name: 'Lengha Choli', id: 'lengha_choli' },
+            { name: 'Sweaters', id: 'sweater' },
+            { name: 'T-Shirts', id: 't-shirt' },
+            { name: 'Jackets', id: 'jacket' },
+            { name: 'Gouns', id: 'gouns' },
+            { name: 'Sarees', id: 'saree' },
+            { name: 'Kurtas', id: 'kurtas' },
           ],
         },
         {
           id: 'accessories',
           name: 'Accessories',
           items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
+            { name: 'Watches', id: 'watch' },
+            { name: 'Wallets', id: 'wallet' },
+            { name: 'Bags', id: 'bag' },
+            { name: 'Sunglasses', id: 'sunglasse' },
+            { name: 'Hats', id: 'hat' },
+            { name: 'Belts', id: 'belt' },
           ],
         },
         {
           id: 'brands',
           name: 'Brands',
           items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
+            { name: 'Full Nelson', id: '#' },
+            { name: 'My Way', id: '#' },
+            { name: 'Re-Arranged', id: '#' },
+            { name: 'Counterfeit', id: '#' },
+            { name: 'Significant Other', id: '#' },
           ],
         },
       ],
@@ -68,13 +73,13 @@ const navigation = {
       featured: [
         {
           name: 'New Arrivals',
-          href: '#',
+          id: '#',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Artwork Tees',
-          href: '#',
+          id: '#',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
@@ -85,43 +90,44 @@ const navigation = {
           id: 'clothing',
           name: 'Clothing',
           items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
+            { name: 'Mens Kurtas', id: 'mens_kurta' },
+            { name: 'Shirt', id: 'shirt' },
+            { name: 'Men Jeans', id: 'men_jeans' },
+            { name: 'Sweaters', id: '#' },
+            { name: 'T-Shirts', id: 't-shirt' },
+            { name: 'Jackets', id: '#' },
+            { name: 'Activewear', id: '#' },
+            
           ],
         },
         {
           id: 'accessories',
           name: 'Accessories',
           items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
+            { name: 'Watches', id: '#' },
+            { name: 'Wallets', id: '#' },
+            { name: 'Bags', id: '#' },
+            { name: 'Sunglasses', id: '#' },
+            { name: 'Hats', id: '#' },
+            { name: 'Belts', id: '#' },
           ],
         },
         {
           id: 'brands',
           name: 'Brands',
           items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
+            { name: 'Re-Arranged', id: '#' },
+            { name: 'Counterfeit', id: '#' },
+            { name: 'Full Nelson', id: '#' },
+            { name: 'My Way', id: '#' },
           ],
         },
       ],
     },
   ],
   pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
+    { name: 'Company', id: '/' },
+    { name: 'Stores', id: '/' },
   ],
 }
 
@@ -131,7 +137,25 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false)
-
+  const [name, setName] = useState('Sign In')
+  const [isLogged, setIsLogged] = useState(false)
+  useEffect(()=>{
+    if(isLogged){
+      try{
+        const user = JSON.parse(localStorage.getItem('user'))
+        setName(user.name)
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
+    else{
+      setName('Sign In')
+    }
+  },[isLogged])
+ const LogInButton=()=>{
+    Router.push('/LogIn')
+ }
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -247,7 +271,7 @@ export default function Navigation() {
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900" onClick={LogInButton}>
                       Sign in
                     </a>
                   </div>
@@ -261,11 +285,11 @@ export default function Navigation() {
                 <div className="border-t border-gray-200 px-4 py-6">
                   <a href="#" className="-m-2 flex items-center p-2">
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="https://img.icons8.com/?size=512&id=D79a8FfPP706&format=png"
                       alt=""
                       className="block h-auto w-5 flex-shrink-0"
                     />
-                    <span className="ml-3 block text-base font-medium text-gray-900">CAD</span>
+                    <span className="ml-3 block text-base font-medium text-gray-900">IND</span>
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div>
@@ -407,7 +431,7 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800" onClick={LogInButton}>
                     Sign in
                   </a>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
@@ -419,11 +443,11 @@ export default function Navigation() {
                 <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="https://img.icons8.com/?size=512&id=D79a8FfPP706&format=png"
                       alt=""
                       className="block h-auto w-5 flex-shrink-0"
                     />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="ml-3 block text-sm font-medium">IND</span>
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div>
