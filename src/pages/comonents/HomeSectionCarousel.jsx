@@ -83,7 +83,7 @@ const HomeSectionCarousel = ({ data, category }) => {
                         activeIndex={activeIndex}
 
                     />
-                    {left && <Button className='z-50 bg-white' variant='contained' sx={{ position: 'absolute', top: "8rem", left: "0rem", transform: "translateX(-50%) rotate(-90deg)", bgcolor: "white" }}
+                    {/* {left && <Button className='z-50 bg-white' variant='contained' sx={{ position: 'absolute', top: "8rem", left: "0rem", transform: "translateX(-50%) rotate(-90deg)", bgcolor: "white" }}
                         onClick={slidePrev}>
                         <ArrowBackIosIcon sx={{ transform: "rotate(90deg)", color: "black" }} />
                     </Button>}
@@ -93,7 +93,7 @@ const HomeSectionCarousel = ({ data, category }) => {
                         aria-label='next'
                     >
                         <ArrowForwardIosIcon sx={{ transform: "rotate(90deg)", color: "black" }} />
-                    </Button>}
+                    </Button>} */}
                 </div>
             </div>
         </>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Classes from "./Card.module.css"
 import Image from "next/image"
 import Navigation from '../comonents/Navigation'
@@ -15,10 +15,20 @@ const Card = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
     const [pdt,setPdt]=useState("")
     // const [type,setType]=useState("")
-    const setType=(e)=>{
-        console.log(e)
-    }
-    const [datas,setDatas]=useState([])
+    // const setType=(e)=>{
+    //     // console.log(e)
+    //     setPdt(e)
+    // }
+    // const [datas,setDatas]=useState([])
+    // useEffect(()=>{
+    //     if(pdt==="All"){
+    //         setDatas([...Gouns,...Mens_Shirts,...Mens_Shoes,...Kurta])
+    //     }
+    //     else if(pdt==="Gouns"){
+    //         setDatas(Gouns)
+    //     }
+
+    // },[pdt])
     var data=[...Gouns,...Mens_Shirts,...Mens_Shoes,...Kurta]
     const sortOptions = [
         { name: 'Most Popular', href: '#', current: true },
@@ -259,7 +269,9 @@ const Card = () => {
                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
                     <li key={category.name}>
-                    <button onClick={setType(category.name)}>{category.name}</button>
+                    <button 
+                    // onClick={setType(category.name)}
+                    >{category.name}</button>
                       {/* <a href={category.href}  onClick={console.log(category.name)}>{category.name}</a> */}
                     </li>
                   ))}
