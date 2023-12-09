@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import AliceCarousel from 'react-alice-carousel';
+import dynamic from 'next/dynamic'
 import 'react-alice-carousel/lib/alice-carousel.css';
 import HomeSectionCard from './HomeSectionCard';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -98,5 +99,7 @@ const HomeSectionCarousel = ({ data, category }) => {
         </>
     )
 }
-
-export default HomeSectionCarousel
+const HomeSectionCarousele = dynamic(() => Promise.resolve(HomeSectionCarousel), {
+    ssr: false,
+  })
+export default HomeSectionCarousele

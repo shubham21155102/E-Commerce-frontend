@@ -1,5 +1,6 @@
 "use client"
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 const HomeSectionCard = ({product}) => {
   return (
   
@@ -15,5 +16,7 @@ const HomeSectionCard = ({product}) => {
    
   )
 }
-
+const HomeSectionCarde = dynamic(() => Promise.resolve(HomeSectionCard), {
+  ssr: false,
+})
 export default HomeSectionCard
