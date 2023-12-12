@@ -1,8 +1,8 @@
 import React from 'react'
 import Navigation from "../comonents/Navigation";
-// import Navigation from "../comonents/Navigation";
 import Footer from "../comonents/Footer";
 const SignUp = () => {
+    
   return (
     <>
       <Navigation />
