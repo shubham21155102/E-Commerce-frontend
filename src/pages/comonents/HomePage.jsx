@@ -13,7 +13,7 @@ import Footer from "./Footer"
 const HomePage = () => {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       <MainCarousel />
       <div className='space-y-10 py-20 flex flex-col justify-center'>
         <HomeSectionCarousel data={mens_kurta} category={"Men's Kurta"} />
@@ -29,7 +29,7 @@ const HomePage = () => {
 
 
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

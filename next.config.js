@@ -2,11 +2,31 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com", 'fmcweekend24.s3.ap-south-1.amazonaws.com', 'lh4.googleusercontent.com', 'lh3.googleusercontent.com', 'lh5.googleusercontent.com', 'lh6.googleusercontent.com', 'cdn.animaapp.com', 'res.cloudinary.com', 'drive.google.com','scontent.cdninstagram.com','tailwindui.com',"www.ethnicplus.in",'rukminim1.flixcart.com','img.icons8.com'],
+    domains: [],
+    remotePatterns: [
+      { 
+        hostname: 'images.unsplash.com', 
+      },
+      { 
+        hostname: 'fmcweekend24.s3.ap-south-1.amazonaws.com',
+      },
+      { 
+        hostname: 'lh[3-6].googleusercontent.com', 
+      },
+      { 
+        hostname: 'cdn.animaapp.com', 
+      },
+      {
+        hostname:'www.ethnicplus.in'
+      },
+      {
+        hostname:'rukminim1.flixcart.com'
+      }
+    ],
   },
-   compiler: {
+  compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-  }
-}
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

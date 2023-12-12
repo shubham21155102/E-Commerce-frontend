@@ -4,9 +4,9 @@
         "brand": "El Senor",
         "title": "Men Regular Fit Solid Cut Away Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 299,
-        "price": 1299,
-        "discountPersent": 76,
+        "selling_price": "₹299",
+        "price": "₹1299",
+        "disscount": "76% off",
         "size": [
             {
               "name": "S",
@@ -32,9 +32,9 @@
         "brand": "youth first",
         "title": "Men Regular Fit Solid Curved Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 299,
+        "selling_price": 299,
         "price": 899,
-        "discountPersent": 66,
+        "disscount": "66% off",
         "size": [
             {
               "name": "S",
@@ -60,9 +60,9 @@
         "brand": "VTEXX",
         "title": "Men Regular Fit Solid Cut Away Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 299,
+        "selling_price": 299,
         "price": 1299,
-        "discountPersent": 76,
+        "disscount": "76% off",
         "size": [
             {
               "name": "S",
@@ -88,9 +88,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Regular Fit Checkered Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 879,
+        "selling_price": 879,
         "price": 1599,
-        "discountPersent": 45,
+        "disscount": 45,
         "size": [
             {
               "name": "S",
@@ -116,9 +116,9 @@
         "brand": "FUBAR",
         "title": "Men Slim Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 419,
+        "selling_price": 419,
         "price": 1648,
-        "discountPersent": 74,
+        "disscount": "74% off",
         "size": [
             {
               "name": "S",
@@ -144,9 +144,9 @@
         "brand": "MILDIN",
         "title": "Men Slim Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 399,
+        "selling_price": 399,
         "price": 1299,
-        "discountPersent": 69,
+        "disscount": "69% off",
         "size": [
             {
               "name": "S",
@@ -172,9 +172,9 @@
         "brand": "VeBNoR",
         "title": "Men Regular Fit Solid Button Down Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 379,
+        "selling_price": 379,
         "price": 1849,
-        "discountPersent": 79,
+        "disscount": "79% off",
         "size": [
             {
               "name": "S",
@@ -200,9 +200,9 @@
         "brand": "BK BRAND",
         "title": "Men Regular Fit Checkered Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 498,
+        "selling_price": 498,
         "price": 999,
-        "discountPersent": 50,
+        "disscount": "50% off",
         "size": [
             {
               "name": "S",
@@ -228,9 +228,9 @@
         "brand": "3BROS",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 499,
+        "selling_price": 499,
         "price": 799,
-        "discountPersent": 50,
+        "disscount": "50% off",
         "size": [
             {
               "name": "S",
@@ -256,9 +256,9 @@
         "brand": "3BROS",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 499,
+        "selling_price": 499,
         "price": 1799,
-        "discountPersent": 72,
+        "disscount": "72% off",
         "size": [
             {
               "name": "S",
@@ -284,9 +284,9 @@
         "brand": "STONEBERG",
         "title": "Men Slim Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 409,
+        "selling_price": 409,
         "price": 1599,
-        "discountPersent": 74,
+        "disscount": "74% off",
         "size": [
             {
               "name": "S",
@@ -312,9 +312,9 @@
         "brand": "Refresh",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 449,
+        "selling_price": 449,
         "price": 999,
-        "discountPersent": 55,
+        "disscount": "55% off",
         "size": [
             {
               "name": "S",
@@ -340,9 +340,9 @@
         "brand": "ARROW",
         "title": "Men Slim Fit Self Design Cut Away Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 949,
+        "selling_price": 949,
         "price": 2499,
-        "discountPersent": 62,
+        "disscount": "62% off",
         "size": [
             {
               "name": "S",
@@ -368,9 +368,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Regular Fit Checkered Formal Shirt",
         "color": "white",
-        "discountedPrice": 899,
+        "selling_price": 899,
         "price": 1799,
-        "discountPersent": 50,
+        "disscount": "50% off",
         "size": [
             {
               "name": "S",
@@ -396,9 +396,9 @@
         "brand": "VAN HEUSEN",
         "title": "Men Regular Fit Checkered Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 1099,
+        "selling_price": 1099,
         "price": 2799,
-        "discountPersent": 62,
+        "disscount": "62% off",
         "size": [
             {
               "name": "S",
@@ -424,9 +424,9 @@
         "brand": "ARROW",
         "title": "Men Slim Fit Printed Cut Away Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 911,
+        "selling_price": 911,
         "price": 2399,
-        "discountPersent": 62,
+        "disscount": "62% off",
         "size": [
             {
               "name": "S",
@@ -452,9 +452,9 @@
         "brand": "3BROS",
         "title": "Men Regular Fit Printed Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 499,
+        "selling_price": 499,
         "price": 1799,
-        "discountPersent": 72,
+        "disscount": "72% off",
         "size": [
             {
               "name": "S",
@@ -480,9 +480,9 @@
         "brand": "V-MART",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 499,
+        "selling_price": 499,
         "price": 960,
-        "discountPersent": 16,
+        "disscount": "16% off",
         "size": [
             {
               "name": "S",
@@ -508,9 +508,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 719,
+        "selling_price": 719,
         "price": 1199,
-        "discountPersent": 40,
+        "disscount": "40% off",
         "size": [
             {
               "name": "S",
@@ -536,9 +536,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Regular Fit Checkered Formal Shirt",
         "color": "white",
-        "discountedPrice": 899,
+        "selling_price": 899,
         "price": 1799,
-        "discountPersent": 50,
+        "disscount": "50% off",
         "size": [
             {
               "name": "S",
@@ -564,9 +564,9 @@
         "brand": "NIVICK",
         "title": "Men Slim Fit Solid Mandarin Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 499,
+        "selling_price": 499,
         "price": 1499,
-        "discountPersent": 66,
+        "disscount": 66,
         "size": [
             {
               "name": "S",
@@ -592,9 +592,9 @@
         "brand": "UNICONIC",
         "title": "Men Slim Fit Solid Spread Collar Formal Shirt",
         "color": "whitePack of 2",
-        "discountedPrice": 799,
+        "selling_price": 799,
         "price": 1499,
-        "discountPersent": 46,
+        "disscount": 46,
         "size": [
             {
               "name": "S",
@@ -620,9 +620,9 @@
         "brand": "FUBAR",
         "title": "Men Slim Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 419,
+        "selling_price": 419,
         "price": 1648,
-        "discountPersent": 74,
+        "disscount": 74,
         "size": [
             {
               "name": "S",
@@ -648,9 +648,9 @@
         "brand": "ARROW",
         "title": "Men Slim Fit Checkered Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 949,
+        "selling_price": 949,
         "price": 2499,
-        "discountPersent": 62,
+        "disscount": 62,
         "size": [
             {
               "name": "S",
@@ -676,9 +676,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Slim Fit Printed Formal Shirt",
         "color": "white",
-        "discountedPrice": 799,
+        "selling_price": 799,
         "price": 1599,
-        "discountPersent": 50,
+        "disscount": 50,
         "size": [
             {
               "name": "S",
@@ -704,9 +704,9 @@
         "brand": "VAN HEUSEN",
         "title": "Men Slim Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 149,
+        "selling_price": 149,
         "price": 2599,
-        "discountPersent": 45,
+        "disscount": 45,
         "size": [
             {
               "name": "S",
@@ -732,9 +732,9 @@
         "brand": "Don Vino",
         "title": "Men Regular Fit Striped Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 649,
+        "selling_price": 649,
         "price": 1499,
-        "discountPersent": 56,
+        "disscount": 56,
         "size": [
             {
               "name": "S",
@@ -760,9 +760,9 @@
         "brand": "3BROS",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 499,
+        "selling_price": 499,
         "price": 990,
-        "discountPersent": 50,
+        "disscount": 50,
         "size": [
             {
               "name": "S",
@@ -788,9 +788,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Slim Fit Solid Formal Shirt",
         "color": "white",
-        "discountedPrice": 959,
+        "selling_price": 959,
         "price": 1599,
-        "discountPersent": 40,
+        "disscount": 40,
         "size": [
             {
               "name": "S",
@@ -816,9 +816,9 @@
         "brand": "FIBERMILL",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 399,
+        "selling_price": 399,
         "price": 1599,
-        "discountPersent": 75,
+        "disscount": 75,
         "size": [
             {
               "name": "S",
@@ -844,9 +844,9 @@
         "brand": "THESMOKE",
         "title": "Men Regular Fit Solid Formal Shirt",
         "color": "white",
-        "discountedPrice": 599,
+        "selling_price": 599,
         "price": 899,
-        "discountPersent": 40,
+        "disscount": 40,
         "size": [
             {
               "name": "S",
@@ -872,9 +872,9 @@
         "brand": "THESMOKE",
         "title": "Men Regular Fit Solid Formal Shirt",
         "color": "white",
-        "discountedPrice": 620,
+        "selling_price": 620,
         "price": 699,
-        "discountPersent": 37,
+        "disscount": 37,
         "size": [
             {
               "name": "S",
@@ -900,9 +900,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 751,
+        "selling_price": 751,
         "price": 1599,
-        "discountPersent": 53,
+        "disscount": 53,
         "size": [
             {
               "name": "S",
@@ -928,9 +928,9 @@
         "brand": "ARROW",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 919,
+        "selling_price": 919,
         "price": 2299,
-        "discountPersent": 60,
+        "disscount": 60,
         "size": [
             {
               "name": "S",
@@ -956,9 +956,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 719,
+        "selling_price": 719,
         "price": 1199,
-        "discountPersent": 40,
+        "disscount": 40,
         "size": [
             {
               "name": "S",
@@ -984,9 +984,9 @@
         "brand": "Calvin Klein Jeans",
         "title": "Men Slim Fit Striped Button Down Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 4499,
+        "selling_price": 4499,
         "price": 5999,
-        "discountPersent": 25,
+        "disscount": 25,
         "size": [
             {
               "name": "S",
@@ -1012,9 +1012,9 @@
         "brand": "NIVICK",
         "title": "Men Slim Fit Solid Mandarin Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 499,
+        "selling_price": 499,
         "price": 1499,
-        "discountPersent": 66,
+        "disscount": 66,
         "size": [
             {
               "name": "S",
@@ -1040,9 +1040,9 @@
         "brand": "Alpesh",
         "title": "Men Regular Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 420,
+        "selling_price": 420,
         "price": 999,
-        "discountPersent": 57,
+        "disscount": 57,
         "size": [
             {
               "name": "S",
@@ -1068,9 +1068,9 @@
         "brand": "VAN HEUSEN",
         "title": "Men Slim Fit Checkered Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 1099,
+        "selling_price": 1099,
         "price": 1999,
-        "discountPersent": 47,
+        "disscount": 47,
         "size": [
             {
               "name": "S",
@@ -1096,9 +1096,9 @@
         "brand": "PETER ENGLAND",
         "title": "Men Slim Fit Solid Spread Collar Formal Shirt",
         "color": "white",
-        "discountedPrice": 839,
+        "selling_price": 839,
         "price": 1399,
-        "discountPersent": 40,
+        "disscount": 40,
         "size": [
             {
               "name": "S",

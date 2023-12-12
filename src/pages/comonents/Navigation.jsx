@@ -196,7 +196,7 @@ export default function Navigation() {
                   </button>
                 </div>
 
-                {/* Links */}
+          
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-gray-200">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
@@ -271,12 +271,12 @@ export default function Navigation() {
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900" onClick={LogInButton}>
+                    <a href="/LogIn" className="-m-2 block p-2 font-medium text-gray-900" onClick={LogInButton}>
                       Sign in
                     </a>
                   </div>
                   <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                    <a href="/SignUp" className="-m-2 block p-2 font-medium text-gray-900">
                       Create account
                     </a>
                   </div>
@@ -319,7 +319,7 @@ export default function Navigation() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
+                <a href="/">
                   <span className="sr-only">Your Company</span>
                   <img
                     className="h-8 w-auto"
@@ -431,13 +431,14 @@ export default function Navigation() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800" onClick={LogInButton}>
-                    Sign in
-                  </a>
+                <Button className='text-sm font-medium text-gray-700 hover:text-gray-800' href='/LogIn'>
+                  Sign in
+                </Button>
+                 
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <Button href="/SignUp" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Create account
-                  </a>
+                  </Button>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">

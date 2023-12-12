@@ -4,102 +4,99 @@ import AliceCarousel from 'react-alice-carousel';
 import dynamic from 'next/dynamic'
 import 'react-alice-carousel/lib/alice-carousel.css';
 import HomeSectionCard from './HomeSectionCard';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
 import { Button } from '@mui/material';
-// import { mens_kurta } from '../../../comonents/Data/mens_kurta';
 const HomeSectionCarousel = ({ data, category }) => {
     // console.log(data + "data obtained")
     const [activeIndex, setActiveIndex] = useState(0);
-    const [left, setLeft] = React.useState(false);
-    const [right, setRight] = React.useState(true);
+    const slidePrev = () => setActiveIndex(activeIndex - 1);
+    const slideNext = () => setActiveIndex(activeIndex + 1);
+    const syncActiveIndex = ({ item }) => setActiveIndex(item);
+
+
     const responsive = {
-        0: { items: 1 },
-        568: { items: 2 },
-        1024: { items: 4 },
+        0: {
+            items: 2,
+            itemsFit: "contain",
+        },
+        568: {
+            items: 3,
+            itemsFit: "contain",
+        },
+        1024: {
+            items: 5.5,
+            itemsFit: "contain",
+        },
     };
-    const slidePrev = () => {
-        if (activeIndex > 0) {
-            setLeft(true)
-            setActiveIndex(activeIndex - 1)
-        }
-        else {
-            console.log("no more slides")
-            setLeft(false)
-        }
-    }
-    const slideNext = () => {
-        if (activeIndex < 4) {
-            setRight(true)
-            setActiveIndex(activeIndex + 1)
-        }
-        else {
-            console.log("no more slides")
-            setRight(false)
-        }
-    }
+    const items = data.map((item) => (
+        <div className="">
+            {" "}
+            <HomeSectionCard product={item} />
+        </div>
+    ));
 
-
-    const syncActiveIndex = ({ item }) => {
-        // console.log(item + " syncActiveIndex obtained")
-        // console.log(activeIndex + " activeIndex obtained")
-        setActiveIndex(item)
-    }
-    useEffect(() => {
-        if (activeIndex === 0) {
-            setLeft(false)
-        }
-        else {
-            setLeft(true)
-        }
-        if (activeIndex === 4) {
-            setRight(false)
-        }
-        else {
-            setRight(true)
-        }
-    }
-        , [activeIndex])
-
-    const items = data.map((item) => <HomeSectionCard product={item} />)
     return (
-        <>
-            <div className='relative px-4 lg:px-8 border border-white'>
-                <h1 className='text-2xl font-bold text-center'>{category}</h1>
-                <div className='relative p-5'>
-                    <AliceCarousel
-
-                        items={items}
-                        disableButtonsControls
-                        autoPlay
-                        autoPlayInterval={2000}
-                        responsive={responsive}
-                        disableDotsControls
-                        mouseTracking
-                        // touchMoveDefaultEvents
-                        // onInitialized={console.log('initialized index:' + activeIndex)}
-                        onSlideChanged={syncActiveIndex}
-                        activeIndex={activeIndex}
-
-                    />
-                    {/* {left && <Button className='z-50 bg-white' variant='contained' sx={{ position: 'absolute', top: "8rem", left: "0rem", transform: "translateX(-50%) rotate(-90deg)", bgcolor: "white" }}
-                        onClick={slidePrev}>
-                        <ArrowBackIosIcon sx={{ transform: "rotate(90deg)", color: "black" }} />
-                    </Button>}
-                    {right && <Button onClick={slideNext}
-                        className='z-50 bg-white' variant='contained'
-                        sx={{ position: 'absolute', top: "8rem", right: "0rem", transform: "translateX(-50%) rotate(-90deg)", bgcolor: "white" }}
-                        aria-label='next'
-                    >
-                        <ArrowForwardIosIcon sx={{ transform: "rotate(90deg)", color: "black" }} />
-                    </Button>} */}
-                </div>
-            </div>
-        </>
-    )
+        <div className="relative px-4 sm:px-6 lg:px-8 ">
+          <h2 className="text-2xl font-extrabold text-gray-900 py-5">{category}</h2>
+          <div className="relative border p-5">
+            <AliceCarousel
+              disableButtonsControls
+              disableDotsControls
+              mouseTracking
+              items={items}
+              activeIndex={activeIndex}
+              responsive={responsive}
+              onSlideChanged={syncActiveIndex}
+              animationType="fadeout"
+              animationDuration={2000}
+            />
+            {activeIndex !== items.length - 5 && (
+              <Button
+                onClick={slideNext}
+                variant="contained"
+                
+                sx={{
+                  position: "absolute",
+                  top: "8rem",
+                  right: "0rem",
+                  transform: "translateX(50%) rotate(90deg)",
+                }}
+                
+                aria-label="next"
+              >
+                <ArrowForwardIosIcon
+                  className=""
+                  sx={{ transform: "rotate(-90deg)" }}
+                />
+              </Button>
+            )}
+    
+            {activeIndex !== 0 && (
+              <Button
+                onClick={slidePrev}
+                variant="contained"
+                
+                
+                sx={{
+                  position: "absolute",
+                  top: "8rem",
+                  left: "0rem",
+                  transform: "translateX(-50%)  rotate(90deg)",
+                }}
+                aria-label="next"
+              >
+                <ArrowForwardIosIcon
+                  className=""
+                  sx={{ transform: " rotate(90deg)" }}
+                />
+              </Button>
+            )}
+          </div>
+        </div>
+      );
 }
 const HomeSectionCarousele = dynamic(() => Promise.resolve(HomeSectionCarousel), {
     ssr: false,
-  })
+})
 export default HomeSectionCarousele
