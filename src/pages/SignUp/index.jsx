@@ -1,8 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navigation from "../comonents/Navigation";
 import Footer from "../comonents/Footer";
+import Router  from 'next/router';
 const SignUp = () => {
-    
+    const [fname,setFname]=useState('');
+    const [lname,setLname]=useState('');
+    const [email,setEmail]=useState('');
+    const [username,setUsername]=useState('');
+    const [password,setPassword]=useState('');
+    const [cpassword,setCpassword]=useState('');
+    const [phone,setPhone]=useState('');
+    const SignUpBtn=async(e)=>{
+        e.preventDefault();
+        try{
+            const res=await fetch(`/api/register`,{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    fname,
+                    lname,
+                    email,
+                    username,
+                    password,
+                    cpassword,
+                    phone
+                })
+            })
+            console.log(res.status);
+            if(res.status==200){
+                alert("Registered Successfully");
+                Router.push("/LogIn");
+
+            }
+            else{
+                alert("Invalid Username or Password");
+            }}
+            catch(err){
+                console.log(err);
+            }
+    }
   return (
     <>
       <Navigation />
@@ -37,7 +75,9 @@ const SignUp = () => {
             color: 'white',
             borderRadius: '20px',
             transition: '0.25s'
-          }} />
+          }}
+          onChange={(e)=>{setFname(e.target.value)}}
+          />
         </label>
         <label>
           <input type='text' name='lname' placeholder='Last Name' style={{
@@ -52,7 +92,9 @@ const SignUp = () => {
             color: 'white',
             borderRadius: '20px',
             transition: '0.25s'
-          }} />
+          }}
+            onChange={(e)=>{setLname(e.target.value)}}
+           />
         </label>
         <label>
           <input type='text' name='email' placeholder='Email' style={{
@@ -67,7 +109,9 @@ const SignUp = () => {
             color: 'white',
             borderRadius: '20px',
             transition: '0.25s'
-          }} />
+          }}
+          onChange={(e)=>{setEmail(e.target.value)}}
+           />
         </label>
 
           <label>
@@ -83,7 +127,9 @@ const SignUp = () => {
               color: 'white',
               borderRadius: '20px',
               transition: '0.25s'
-            }} />
+            }} 
+            onChange={(e)=>{setUsername(e.target.value)}}
+            />
           </label>
           <label></label>
           <input type="password" name="password" placeholder="Password" style={{
@@ -98,7 +144,9 @@ const SignUp = () => {
             color: 'white',
             borderRadius: '20px',
             transition: '0.25s'
-          }} />
+          }} 
+            onChange={(e)=>{setPassword(e.target.value)}}
+          />
            <label>
           <input type='text' name='cpassword' placeholder='Confirm Password' style={{
             border: '2px solid #3498db',
@@ -112,7 +160,9 @@ const SignUp = () => {
             color: 'white',
             borderRadius: '20px',
             transition: '0.25s'
-          }} />
+          }}
+          onChange={(e)=>{setCpassword(e.target.value)}}
+           />
         </label>
         <label>
           <input type='text' name='phone' placeholder='Phone' style={{
@@ -127,7 +177,9 @@ const SignUp = () => {
             color: 'white',
             borderRadius: '20px',
             transition: '0.25s'
-          }} />
+          }} 
+            onChange={(e)=>{setPhone(e.target.value)}}
+          />
         </label>
           <button type="submit" style={{
             border: '2px solid #2ec712',
@@ -143,7 +195,8 @@ const SignUp = () => {
             borderRadius: '20px',
             transition: 'background-color 0.25s',
             cursor: 'pointer'
-          }}>Sign Up</button>
+          }}
+          onClick={SignUpBtn}>Sign Up</button>
         </div>
       </div>
         <Footer />
