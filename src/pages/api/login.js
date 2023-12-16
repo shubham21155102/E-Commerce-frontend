@@ -4,7 +4,7 @@ export default async function handler(req, res) {
         console.log("username: ", username);
         console.log("password",password);
         try {
-            const response = await fetch(`http://localhost:8080/login?username=${username}&password=${password}`, {
+            const response = await fetch(`https://cec0-103-194-71-218.ngrok-free.app/api/user/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
