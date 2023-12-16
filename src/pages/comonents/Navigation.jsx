@@ -2,11 +2,8 @@ import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Avatar,Button,Menu,MenuItem } from '@mui/material'
-import { deepPurple } from '@mui/material/colors'
 import  Router  from 'next/router'
-// import navigationData from "./Data/navigation.json"
-
-const navigation = {
+const navigation= {
   categories: [
     {
       id: 'women',
@@ -135,7 +132,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navigation() {
+export default function Navigation({item}) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('Sign In')
   const [isLogged, setIsLogged] = useState(false)
@@ -156,9 +153,20 @@ export default function Navigation() {
  const LogInButton=()=>{
     Router.push('/LogIn')
  }
+ const [items,setItems] = useState(0);
+ useEffect(()=>{
+   try{
+     const cart = JSON.parse(localStorage.getItem('cart'))
+     if(cart){
+       setItems(cart.length)
+     }
+   }
+   catch(err){
+     console.log(err)
+   }
+  },[item])
   return (
     <div className="bg-white">
-      {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
           <Transition.Child
@@ -468,7 +476,7 @@ export default function Navigation() {
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{items}</span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
