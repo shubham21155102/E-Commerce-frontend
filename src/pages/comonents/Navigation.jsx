@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Avatar,Button,Menu,MenuItem } from '@mui/material'
-import  Router  from 'next/router'
-const navigation= {
+import { Avatar, Button, Menu, MenuItem } from '@mui/material'
+import Router from 'next/router'
+const navigation = {
   categories: [
     {
       id: 'women',
@@ -27,8 +27,8 @@ const navigation= {
           id: 'clothing',
           name: 'Clothing',
           items: [
-            { name: 'Tops', id:"top", href: `{women/clothing/tops}` },
-            { name: 'Dresses', id:"women_dress", href: '#' },
+            { name: 'Tops', id: "top", href: `{women/clothing/tops}` },
+            { name: 'Dresses', id: "women_dress", href: '#' },
             { name: 'Women Jeans', id: 'women_jeans' },
             { name: 'Lengha Choli', id: 'lengha_choli' },
             { name: 'Sweaters', id: 'sweater' },
@@ -94,7 +94,7 @@ const navigation= {
             { name: 'T-Shirts', id: 't-shirt' },
             { name: 'Jackets', id: '#' },
             { name: 'Activewear', id: '#' },
-            
+
           ],
         },
         {
@@ -132,39 +132,38 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navigation({item=0}) {
+export default function Navigation({ item = 0 }) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('Sign In')
   const [isLogged, setIsLogged] = useState(false)
-  useEffect(()=>{
-    if(isLogged){
-      try{
-        const user = JSON.parse(localStorage.getItem('user'))
-        setName(user.name)
+  useEffect(() => {
+    try {
+      const userName = localStorage.getItem('username')
+      if (userName) {
+        setName(userName)
+        setIsLogged(true)
       }
-      catch(err){
-        console.log(err)
-      }
+    } catch (err) {
+      console.log(err)
     }
-    else{
-      setName('Sign In')
-    }
-  },[isLogged])
- const LogInButton=()=>{
+
+
+  }, [isLogged])
+  const LogInButton = () => {
     Router.push('/LogIn')
- }
- const [items,setItems] = useState(0);
- useEffect(()=>{
-   try{
-     const cart = JSON.parse(localStorage.getItem('cart'))
-     if(cart){
-       setItems(cart.length)
-     }
-   }
-   catch(err){
-     console.log(err)
-   }
-  },[item])
+  }
+  const [items, setItems] = useState(0);
+  useEffect(() => {
+    try {
+      const cart = JSON.parse(localStorage.getItem('cart'))
+      if (cart) {
+        setItems(cart.length)
+      }
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }, [item])
   return (
     <div className="bg-white">
       <Transition.Root show={open} as={Fragment}>
@@ -204,7 +203,7 @@ export default function Navigation({item=0}) {
                   </button>
                 </div>
 
-          
+
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-gray-200">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
@@ -280,7 +279,7 @@ export default function Navigation({item=0}) {
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <div className="flow-root">
                     <a href="/LogIn" className="-m-2 block p-2 font-medium text-gray-900" onClick={LogInButton}>
-                      Sign in
+                      {name}
                     </a>
                   </div>
                   <div className="flow-root">
@@ -439,14 +438,20 @@ export default function Navigation({item=0}) {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                <Button className='text-sm font-medium text-gray-700 hover:text-gray-800' href='/LogIn'>
-                  Sign in
-                </Button>
-                 
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <Button href="/SignUp" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
+                  <Button className='text-sm font-medium text-gray-700 hover:text-gray-800' href='/LogIn'>
+                    {name}
                   </Button>
+
+                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                  {
+                    isLogged ? <Button href='logout' className='text-sm font-medium text-gray-700 hover:text-gray-800' 
+                    >
+                      Sign Out
+                    </Button> : <Button href="/SignUp" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                      Create account
+                    </Button>
+                  }
+                
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">

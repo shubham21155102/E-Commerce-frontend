@@ -8,7 +8,8 @@ import Footer from './comonents/Footer'
 export default function Home() {
   return (
    <>
-    <Navigation/>
+   <div className="sticky top-0 z-50 bg-white shadow"><Navigation/></div>
+    
     <HomePage/>
     <Footer/>
    </>

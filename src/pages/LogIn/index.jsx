@@ -22,6 +22,7 @@ const LogIn = () => {
         })
         console.log(res.status);
         if(res.status==200){
+          localStorage.setItem("username",username);
          Router.push("/");
         }
         else{

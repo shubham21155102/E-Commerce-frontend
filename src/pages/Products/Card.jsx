@@ -102,7 +102,7 @@ const Card = () => {
 
   return (
     <>
-      <Navigation item={count}/>
+        <div className="sticky top-0 z-50 bg-white shadow"><Navigation item={count}/></div>
       <div className="bg-white">
         <div>
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>

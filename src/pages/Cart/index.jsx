@@ -30,7 +30,8 @@ const Cart = () => {
   }, [count]);
   return (
     <>
-      <Navigation item={count} />
+      <div className="sticky top-0 z-50 bg-white shadow"><Navigation item={count}/></div>
+    
       {
         data.length > 0 ? <div className="bg-white">
           <div>
