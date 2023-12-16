@@ -132,7 +132,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navigation({item}) {
+export default function Navigation({item=0}) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('Sign In')
   const [isLogged, setIsLogged] = useState(false)
