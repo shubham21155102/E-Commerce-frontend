@@ -15,29 +15,61 @@ import Kurta from "../comonents/Data/Kurta.json"
 const Card = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [pdt, setPdt] = useState("")
+  const [userId, setUserId] = useState("");
   const [count, setCount] = useState(0);
-  const addToCart=(item)=>{
-    var id=crypto.randomBytes(16).toString("hex")
-    item.id=id;
-    try{  
-         try{
-          var cart=JSON.parse(localStorage.getItem("cart"))
-          cart.push(item)
-          localStorage.setItem("cart",JSON.stringify(cart))
-          setCount(cart.length)
-          localStorage.setItem("count",cart.length)
-         }catch(err){
-          var cart=[]
-          cart.push(item)
-          localStorage.setItem("cart",JSON.stringify(cart))
-          setCount(cart.length)
-          localStorage.setItem("count",cart.length)
-          }
-         
-          // alert('Item added to cart')
-        }catch(err){
-          // console.log(err)
-        }
+  const addToCart = async (item) => {
+    var id = crypto.randomBytes(16).toString("hex");
+    try{
+      var userId=localStorage.getItem("username")
+      item.userId = userId;
+      setUserId(userId)
+    }
+    catch(err){
+      console.log(err)
+    }
+    item.id = id;
+  
+    try {
+      const res = await fetch("/api/addtocart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(item)
+      })
+      const data = await res.json()
+      // console.log(data.status+"nnn")
+      // if(data.status==="OK"){
+      //   alert("Item added to cart")
+      // }
+      // else{
+      //   alert("Item not added to cart")
+      // }
+
+    }
+    catch (err) {
+      console.log(err)
+    }
+
+    try {
+      try {
+        var cart = JSON.parse(localStorage.getItem("cart"))
+        cart.push(item)
+        localStorage.setItem("cart", JSON.stringify(cart))
+        setCount(cart.length)
+        localStorage.setItem("count", cart.length)
+      } catch (err) {
+        var cart = []
+        cart.push(item)
+        localStorage.setItem("cart", JSON.stringify(cart))
+        setCount(cart.length)
+        localStorage.setItem("count", cart.length)
+      }
+
+      // alert('Item added to cart')
+    } catch (err) {
+      // console.log(err)
+    }
   }
   var data = [...Gouns, ...Mens_Shirts, ...Mens_Shoes, ...Kurta]
   const sortOptions = [
@@ -102,7 +134,7 @@ const Card = () => {
 
   return (
     <>
-        <div className="sticky top-0 z-50 bg-white shadow"><Navigation item={count}/></div>
+      <div className="sticky top-0 z-50 bg-white shadow"><Navigation item={count} /></div>
       <div className="bg-white">
         <div>
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -343,10 +375,10 @@ const Card = () => {
                             <p className='font-semibold'>{item.selling_price}</p>
                             <p className='line-through opacity-50'>{item.price}</p>
                             <p className='text-green-600 font-semibold'>{item.disscount}</p>
-                           
+
 
                           </div>
-                          <button className='bg-black text-white px-4 py-1 rounded-md' onClick={()=>addToCart(item)}>
+                          <button className='bg-black text-white px-4 py-1 rounded-md' onClick={() => addToCart(item)}>
                             Add to cart
                           </button>
                         </div>
