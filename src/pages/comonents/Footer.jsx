@@ -1,8 +1,10 @@
 import React from 'react'
+import ContactUs from "./ContactUs"
 import {Button, Grid, Typography} from "@mui/material"
 const Footer = () => {
   return (
    <>
+    <ContactUs/>
 <Grid className='bg-black text-white text-center mt-10'
   container
   sx={{bgcolor:"black",color:"white",py:3}}>

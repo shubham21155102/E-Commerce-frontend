@@ -1,36 +1,54 @@
 import React from 'react';
 import Navigation from "../comonents/Navigation";
 import Footer from "../comonents/Footer";
-import Router  from 'next/router';
+import Router from 'next/router';
 const LogIn = () => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const LogInBtn = async(e) => {
-      e.preventDefault();
-      // console.log("username: ", username);
-      // console.log("password: ", password);
-      try{
-        const res=await fetch(`/api/login`,{
-          method:"POST",
-          headers:{
-              "Content-Type":"application/json"
-          },
-          body:JSON.stringify({
-              username,
-              password
-          })
+  const LogInBtn = async (e) => {
+    e.preventDefault();
+    // console.log("username: ", username);
+    // console.log("password: ", password);
+    try {
+      const res = await fetch(`/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username,
+          password
         })
-        console.log(res.status);
-        if(res.status==200){
-          localStorage.setItem("username",username);
-         Router.push("/");
+      })
+      console.log(res.status);
+      if (res.status == 200) {
+        localStorage.setItem("username", username);
+        try{
+          console.log("username: ",username)
+          const res=await fetch('api/getcart',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                username
+            })
+          })
+          const data=await res.json();
+          console.log(data);
         }
-        else{
-          alert("Invalid Username or Password");
+        catch(err){
+          console.log(err);
         }
-      }catch(err){
-        console.log(err);
+
+        Router.push("/");
       }
+      else {
+        alert("Invalid Username or Password");
+      }
+    } catch (err) {
+      console.log(err);
+    }
 
 
   }
@@ -78,21 +96,21 @@ const LogIn = () => {
             />
           </label>
           <label>
-          <input type="password" name="password" placeholder="Password" style={{
-            border: '2px solid #3498db',
-            background: 'none',
-            display: 'block',
-            margin: '20px auto',
-            textAlign: 'center',
-            padding: '14px 10px',
-            width: '200px',
-            outline: 'none',
-            color: 'white',
-            borderRadius: '20px',
-            transition: '0.25s'
-          }} 
-          onChange={(e) => setPassword(e.target.value)}
-          />
+            <input type="password" name="password" placeholder="Password" style={{
+              border: '2px solid #3498db',
+              background: 'none',
+              display: 'block',
+              margin: '20px auto',
+              textAlign: 'center',
+              padding: '14px 10px',
+              width: '200px',
+              outline: 'none',
+              color: 'white',
+              borderRadius: '20px',
+              transition: '0.25s'
+            }}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </label>
           <button type="submit" style={{
             border: '2px solid #2ec712',

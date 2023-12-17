@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { use, useEffect } from 'react'
 import Classes from "./Card.module.css"
 import Image from "next/image"
 import crypto from "crypto"
@@ -12,7 +12,8 @@ import Gouns from "../comonents/Data/Gouns.json"
 import Mens_Shirts from "../comonents/Data/Mens_Shirts.json"
 import Mens_Shoes from "../comonents/Data/Mens_Shoe.json"
 import Kurta from "../comonents/Data/Kurta.json"
-const Card = () => {
+import Router from 'next/router'
+const Card = ({isLogged=false}) => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [pdt, setPdt] = useState("")
   const [userId, setUserId] = useState("");
@@ -50,6 +51,22 @@ const Card = () => {
     catch (err) {
       console.log(err)
     }
+    // useEffect(() => {
+    //   try {
+    //     const userName = localStorage.getItem('username')
+    //     console.log("Checking")
+    //     console.log(userName)
+    //     if (userName) {
+    //       // setName(userName)
+
+    //       setIsLogged(true)
+    //     }
+    //   } catch (err) {
+    //     console.log(err)
+    //   }
+  
+  
+    // }, [isLogged])
 
     try {
       try {
@@ -378,9 +395,13 @@ const Card = () => {
 
 
                           </div>
-                          <button className='bg-black text-white px-4 py-1 rounded-md' onClick={() => addToCart(item)}>
-                            Add to cart
-                          </button>
+                          {isLogged?<> <button className='bg-black text-white px-4 py-1 rounded-md' onClick={() => addToCart(item)}>
+                          Add to cart
+                          </button></>:<> <button className='bg-black text-white px-4 py-1 rounded-md' onClick={() => Router.push("/LogIn")}>
+                          LogIn to Buy
+                          </button></>}
+                          {/* {console.log(isLogged)} */}
+                         
                         </div>
 
                       </div>
