@@ -4,10 +4,11 @@ export default async function handler(req, res) {
         const email = req.body.email;
         const subject = req.body.subject;
         const message = req.body.message;
+        const url = req.body.url;
         // console.log(name, email, subject, message)
         // res.status(200).json({ message: "Email sent successfully" })
         try {
-            const res = fetch("http://localhost:8080/api/email/send", {
+            const res = fetch(`${url}/api/email/send`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

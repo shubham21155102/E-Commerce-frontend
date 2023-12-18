@@ -2,9 +2,28 @@ import React from 'react'
 import ContactUs from "./ContactUs"
 import {Button, Grid, Typography} from "@mui/material"
 const Footer = () => {
+  const backendBtn=(e)=>{
+    e.preventDefault();
+    try{
+      localStorage.setItem('url',input)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  const [input, setInput] = React.useState('');
   return (
    <>
     <ContactUs/>
+    <div className='bg-black text-white text-center mt-10'>
+    <form className='flex flex-col items-center justify-center' onSubmit={backendBtn}>
+    <Typography className='pb-5' variant='h6'>Subscribe to our newsletter</Typography>
+    <div className='flex flex-row items-center justify-center'>
+    <input className='w-96 h-10 rounded-l-lg text-black' type="text" placeholder='Enter your email' value={input} onChange={(e)=>setInput(e.target.value)} required/>
+    <Button className='rounded-r-lg' variant='contained' type="submit">Subscribe</Button>
+    </div>
+    </form>
+    </div>
 <Grid className='bg-black text-white text-center mt-10'
   container
   sx={{bgcolor:"black",color:"white",py:3}}>

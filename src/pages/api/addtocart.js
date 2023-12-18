@@ -13,6 +13,7 @@ export default async function handler(req, res) {
         //     "size":"36",
         //     "title":"Hello from shubham"
         // }
+        
         var userId="admin";
         var productId="xyzw";
         var brand="HnM";
@@ -23,6 +24,7 @@ export default async function handler(req, res) {
         var imageUrl="xx";
         var size="36";
         var title="Hello from shubham";
+        
         const x = req.body
         // console.log(x)
         imageUrl=x.imageUrl || imageUrl;
@@ -35,9 +37,10 @@ export default async function handler(req, res) {
         sellingPrice=x.selling_price || sellingPrice;
         size=x.size || size;
         title=x.title || title;
+        const url=x.url;
         console.log(x)
         try{
-            const res1=await fetch("http://localhost:8080/api/cart/addtocart",{
+            const res1=await fetch(`${url}/api/cart/addtocart`,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"

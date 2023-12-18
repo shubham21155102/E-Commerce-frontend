@@ -1,10 +1,10 @@
 export default async function handler(req, res) {
     if (req.method === "POST") {
-        const { username, password,fname,lname,email,cpassword,phone } = req.body; 
+        const { username, password,fname,lname,email,cpassword,phone,url } = req.body; 
         console.log("username: ", username);
         console.log("password",password);
         try {
-            const response = await fetch(`http://localhost:8080/api/user/register`, {
+            const response = await fetch(`${url}/api/user/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

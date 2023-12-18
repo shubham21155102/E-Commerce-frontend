@@ -1,4 +1,4 @@
-import React, { use, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Classes from "./Card.module.css"
 import Image from "next/image"
 import crypto from "crypto"
@@ -18,6 +18,17 @@ const Card = ({isLogged=false}) => {
   const [pdt, setPdt] = useState("")
   const [userId, setUserId] = useState("");
   const [count, setCount] = useState(0);
+  const [url, setUrl] = useState('');
+  useEffect(()=>{
+    try{
+      const url=localStorage.getItem('url');
+      setUrl(url);
+    }
+    catch(err){
+      console.log(err)
+    }
+  
+  },[url])
   const addToCart = async (item) => {
     var id = crypto.randomBytes(16).toString("hex");
     try{
@@ -29,7 +40,8 @@ const Card = ({isLogged=false}) => {
       console.log(err)
     }
     item.id = id;
-  
+    item.url=url;
+     
     try {
       const res = await fetch("/api/addtocart", {
         method: "POST",

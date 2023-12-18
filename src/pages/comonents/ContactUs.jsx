@@ -1,17 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Classes from "./style/contact.module.css"
 const ContactUs = () => {
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [message, setMessage] = React.useState("");
     const [subject, setSubject] = React.useState("");
+    const [url,setUrl]=useState('');
+    useEffect(()=>{
+      try{
+        const url=localStorage.getItem('url');
+        setUrl(url);
+      }
+      catch(err){
+        console.log(err)
+      }
+    
+    },[url])
+  
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {
             name: name,
             email: email,
             message: message,
-            subject: subject
+            subject: subject,
+            url:url
         }
         console.log(data)
         fetch("/api/contactus", {

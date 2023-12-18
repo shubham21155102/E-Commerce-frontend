@@ -1,10 +1,22 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Navigation from "../comonents/Navigation";
 import Footer from "../comonents/Footer";
 import Router from 'next/router';
 const LogIn = () => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [url,setUrl]=useState('');
+  useEffect(()=>{
+    try{
+      const url=localStorage.getItem('url');
+      setUrl(url);
+    }
+    catch(err){
+      console.log(err)
+    }
+  
+  },[url])
+
   const LogInBtn = async (e) => {
     e.preventDefault();
     // console.log("username: ", username);
@@ -17,7 +29,8 @@ const LogIn = () => {
         },
         body: JSON.stringify({
           username,
-          password
+          password,
+          url
         })
       })
       console.log(res.status);
