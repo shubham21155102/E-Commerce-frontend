@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Navigation from "../comonents/Navigation";
 import Footer from "../comonents/Footer";
 import Router from 'next/router';
