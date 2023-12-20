@@ -4,7 +4,7 @@ import Image from "next/image"
 import crypto from "crypto"
 import Navigation from '../comonents/Navigation'
 import Footer from '../comonents/Footer'
-import { Fragment, useState } from 'react'
+import { Fragment} from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'

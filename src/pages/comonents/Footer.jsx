@@ -63,10 +63,10 @@ const Footer = () => {
   <Grid item xs={12} sm={6} md={3}>
     <Typography className='pb-5' variant='h6'>Legal</Typography>
     <div>
-    <Button className='pb-5' variant='h6' gutterBottom>Claim</Button>
+    <Button className='pb-5' variant='h6' href='/Terms' gutterBottom>T & C</Button>
     </div>
-   <div><Button className='pb-5' variant='h6' gutterBottom>Privacy</Button></div> 
-    <div><Button className='pb-5' variant='h6' gutterBottom>Terms</Button></div>
+   <div><Button className='pb-5' variant='h6' gutterBottom href='/PrivacyPolicy'>Privacy</Button></div> 
+    {/* <div><Button className='pb-5' variant='h6' gutterBottom>Terms</Button></div> */}
    {/* <div><Button className='pb-5' variant='h6' gutterBottom>Jobs</Button></div> 
     <div><Button className='pb-5' variant='h6' gutterBottom>Partners</Button></div> */}
    
