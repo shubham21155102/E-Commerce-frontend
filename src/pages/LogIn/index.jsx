@@ -19,8 +19,6 @@ const LogIn = () => {
 
   const LogInBtn = async (e) => {
     e.preventDefault();
-    // console.log("username: ", username);
-    // console.log("password: ", password);
     try {
       const res = await fetch(`/api/login`, {
         method: "POST",
@@ -36,24 +34,31 @@ const LogIn = () => {
       console.log(res.status);
       if (res.status == 200) {
         localStorage.setItem("username", username);
-        try{
-          console.log("username: ",username)
-          const res=await fetch('api/getcart',{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
+        try {
+          const res = await fetch(`/api/getcart`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
             },
-            body:JSON.stringify({
-                username
+            body: JSON.stringify({
+              username
             })
-          })
-          const data=await res.json();
-          console.log(data);
-        }
-        catch(err){
+          });
+          
+          if (res.status === 200) {
+            const data = await res.json();
+            // console.log(data)
+            // console.log(data.message);
+            const x=JSON.parse(data.message);
+            console.log(x);
+            localStorage.setItem("cart", JSON.stringify(x));
+          } else {
+            console.log("Error fetching data:", res.statusText);
+          }
+        } catch (err) {
           console.log(err);
         }
-
+        
         Router.push("/");
       }
       else {

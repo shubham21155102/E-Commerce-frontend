@@ -32,5 +32,9 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/shubham21155102/E-Commerce-frontend.git",
+  "author": "shubham <shubham.kumar.min21@itbhu.ac.in>",
+  "license": "MIT"
 }

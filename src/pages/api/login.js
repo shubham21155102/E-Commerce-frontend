@@ -1,8 +1,9 @@
 export default async function handler(req, res) {
     if (req.method === "POST") {
-        const { username, password,url } = req.body;
+        const { username, password } = req.body;
         console.log("username: ", username);
         console.log("password", password);
+        const url="https://api.ecommerce.shubhamiitbhu.in";
         try {
             const response = await fetch(`${url}/api/user/login`, {
                 method: "POST",
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
                     password
                 })
             });
-
+            // console.log(response);
             if (!response.ok) {
                 throw new Error('Failed to fetch');
             }

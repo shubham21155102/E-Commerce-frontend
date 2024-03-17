@@ -7,8 +7,9 @@ const Cart = () => {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0);
   const [count, setCount] = useState(0);
-
+  // const [username, setUsername] = useState(localStorage.getItem('username'));
   useEffect(() => {
+    const user = localStorage.getItem('username');
     try {
       const storedData = JSON.parse(localStorage.getItem('cart'));
       if (storedData) {
@@ -20,14 +21,70 @@ const Cart = () => {
         });
         let calculatedTotal = 0;
         storedData.forEach((item) => {
-          calculatedTotal += item.price * item.quantity;
+          const price = item.selling_price || item.SellingPrice;
+          const priceInt = parseInt(price.replace(/\D/g, ''));
+
+          calculatedTotal += priceInt;
         });
         setTotal(calculatedTotal);
       }
     } catch (error) {
       console.log(error);
     }
+    const getCart=async ()=>{
+      const user=localStorage.getItem('username');
+
+      try {
+        const res = await fetch(`/api/getcart`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            username:user
+          })
+        });
+        
+        if (res.status === 200) {
+          const data = await res.json();
+          // console.log(data)
+          // console.log(data.message);
+          const x=JSON.parse(data.message);
+          console.log(x);
+          localStorage.setItem("cart", JSON.stringify(x));
+        } else {
+          console.log("Error fetching data:", res.statusText);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getCart();
+    
   }, [count]);
+  const remoeFromCartButton=async (id)=>{
+    const storedData = JSON.parse(localStorage.getItem('cart'));
+    const updatedData=storedData.filter((item)=>{
+      return item.id!==id
+    })
+    const res=await fetch(`/api/deletefromcart`,{
+      method:"DELETE",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        id,
+        userId:localStorage.getItem('username')
+      })
+    })
+    console.log(res.status);
+    if(res.status==200){
+      console.log("Deleted successfully")
+      localStorage.setItem('cart',JSON.stringify(updatedData));
+      setData(updatedData);
+      setCount(updatedData.length);
+    }
+  }
   return (
     <>
       <div className="sticky top-0 z-50 bg-white shadow"><Navigation item={count}/></div>
@@ -46,20 +103,20 @@ const Cart = () => {
                       <div className="lg:col-span-1">
                         <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                           <div className="px-4 py-5 sm:px-6">
-                            <Image className="h-48 w-full object-cover" src={item.imageUrl} alt="" height={100} width={100} />
+                            <Image className="h-48 w-full object-cover" src={item.imageUrl || item.ImageUrl} alt="" height={100} width={100} />
                             <h3 className="text-lg leading-6 font-medium text-gray-900">
-                              {item.brand}
+                              {item.brand || item.Brand}
                             </h3>
                             <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                              {item.title}
+                              {item.title || item.Title}
                             </p>
                           </div>
                           <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
                             <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
                               <div className="sm:col-span-1 flex-row">
-                                <p className='font-semibold text-black'>{item.selling_price}</p>
-                                <p className='line-through opacity-50 text-black'>{item.price}</p>
-                                <p className='text-green-600 font-semibold'>{item.disscount}</p>
+                                <p className='font-semibold text-black'>{item.selling_price || item.SellingPrice}</p>
+                                <p className='line-through opacity-50 text-black'>{item.price || item.Price}</p>
+                                <p className='text-green-600 font-semibold'>{item.disscount || item.Discount}</p>
                               </div>
                               <div className="sm:col-span-1">
                                
@@ -67,7 +124,7 @@ const Cart = () => {
                               </div>
                               <div className="sm:col-span-1">
 
-
+                       <button onClick={()=>remoeFromCartButton(item.id)} className="bg-red-500 text-white px-4 py-2 rounded-md">Remove</button>
                               </div>
 
                             </dl>

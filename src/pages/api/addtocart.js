@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         sellingPrice=x.selling_price || sellingPrice;
         size=x.size || size;
         title=x.title || title;
-        const url=x.url;
+        const url="https://api.ecommerce.shubhamiitbhu.in"
         console.log(x)
         try{
             const res1=await fetch(`${url}/api/cart/addtocart`,{

@@ -1,8 +1,9 @@
 export default async function handler(req, res) {
     if (req.method === "POST") {
-        const { username, password,fname,lname,email,cpassword,phone,url } = req.body; 
+        const { username, password,fname,lname,email,cpassword,phone} = req.body; 
         console.log("username: ", username);
         console.log("password",password);
+        const url="https://api.ecommerce.shubhamiitbhu.in";
         try {
             const response = await fetch(`${url}/api/user/register`, {
                 method: "POST",
