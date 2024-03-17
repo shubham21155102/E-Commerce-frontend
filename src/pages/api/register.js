@@ -3,7 +3,7 @@ export default async function handler(req, res) {
         const { username, password,fname,lname,email,cpassword,phone} = req.body; 
         console.log("username: ", username);
         console.log("password",password);
-        const url="https://api.ecommerce.shubhamiitbhu.in";
+        const url="https://api.ecom.shubhamiitbhu.in";
         try {
             const response = await fetch(`${url}/api/user/register`, {
                 method: "POST",

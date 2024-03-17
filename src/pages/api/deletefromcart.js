@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
     if(req.method === 'DELETE') {
         const {userId,id}=req.body;
-        const url="https://api.ecommerce.shubhamiitbhu.in";
+        const url="https://api.ecom.shubhamiitbhu.in";
         try{
             const res1=await fetch(`${url}/api/cart`,{
                 method:"DELETE",

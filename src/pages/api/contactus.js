@@ -4,7 +4,7 @@ export default async function handler(req, res) {
         const email = req.body.email;
         const subject = req.body.subject;
         const message = req.body.message;
-        const url = "https://api.ecommerce.shubhamiitbhu.in";
+        const url = "https://api.ecom.shubhamiitbhu.in";
         // console.log(name, email, subject, message)
         // res.status(200).json({ message: "Email sent successfully" })
         try {

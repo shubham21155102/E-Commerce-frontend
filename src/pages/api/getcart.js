@@ -3,7 +3,7 @@ export default async function handler(req, res) {
         const {username}=req.body;
         console.log("username serverless", username);
         try {
-            const data = await fetch(`https://api.ecommerce.shubhamiitbhu.in/api/cart/getcart`, {
+            const data = await fetch(`https://api.ecom.shubhamiitbhu.in/api/cart/getcart`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
